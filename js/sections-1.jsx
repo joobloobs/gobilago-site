@@ -73,6 +73,29 @@
   }
   window.Hero = Hero;
 
+  /* ---- Intro / what is it ---- */
+  function IntroSection() {
+    const { lang } = React.useContext(window.LangContext);
+    const T = window.I18n[lang].intro;
+    return h("section", { className: "section section--sunk intro", "data-screen-label": "Intro" },
+      h("div", { className: "container" },
+        h("div", { className: "section-head section-head--center" },
+          h(Eyebrow, { icon: "lightbulb" }, T.eyebrow),
+          h("h2", null, T.h2),
+          h("p", { className: "lead", style: { marginInline: "auto" } }, T.lead)),
+        h("div", { className: "intro-steps" },
+          T.steps.map(([ic, title, desc], i) => h("div", { className: "intro-step", key: i },
+            h("span", { className: "intro-step-num gb-mono" }, i + 1),
+            h("span", { className: "intro-step-ic" }, Ico(ic)),
+            h("h3", null, title), h("p", null, desc)))),
+        h("div", { className: "intro-learn" },
+          h("span", { className: "intro-learn-label" }, Ico("shapes"), T.learnLabel),
+          h("div", { className: "intro-chips" },
+            T.topics.map(([ic, label], i) => h("span", { className: "intro-chip", key: i },
+              Ico(ic), label))))));
+  }
+  window.IntroSection = IntroSection;
+
   /* ---- Principle ---- */
   function PrincipleSection({ confetti }) {
     const { lang } = React.useContext(window.LangContext);

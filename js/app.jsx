@@ -93,7 +93,7 @@
     useReveal();
 
     const theme = t.dark ? "dark" : "light";
-    const { Nav, Hero, PrincipleSection, ModelSection, InteractionsSection, SchedulerSection,
+    const { Nav, Hero, IntroSection, PrincipleSection, ModelSection, InteractionsSection, SchedulerSection,
       FeaturesSection, MakerSection, RoadmapSection, CTASection, Footer } = window;
 
     const wrap = (node, i) => h("div", { className: "reveal", key: i }, node);
@@ -102,6 +102,7 @@
       h(Nav, { theme, setTheme }),
       h("main", { id: "content" },
         h(Hero, null),
+        wrap(h(IntroSection, null), "in"),
         h("div", { id: "principle" }, wrap(h(PrincipleSection, { confetti: t.confetti }), "pr")),
         h("div", { id: "model" }, wrap(h(ModelSection, null), "mo")),
         h("div", { id: "types" }, wrap(h(InteractionsSection, null), "ty")),

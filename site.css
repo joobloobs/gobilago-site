@@ -227,6 +227,30 @@ h3{ font-size:var(--text-lg); }
 }
 
 /* ============================================================
+   Intro / what is it
+   ============================================================ */
+.intro-steps{ display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; margin-top:18px; }
+.intro-step{ position:relative; background:var(--surface-card); border:1px solid var(--line); border-radius:var(--radius-lg);
+  padding:24px 22px; box-shadow:var(--shadow-sm); }
+.intro-step-num{ position:absolute; top:18px; right:20px; font-size:13px; color:var(--text-muted); }
+.intro-step-ic{ display:grid; place-items:center; width:46px; height:46px; border-radius:14px;
+  background:var(--color-primary-soft); color:var(--color-primary); margin-bottom:15px; }
+.intro-step-ic svg{ width:22px; height:22px; }
+.intro-step h3{ font-family:var(--font-display); font-size:var(--text-lg); color:var(--text-strong); margin-bottom:6px; }
+.intro-step p{ font-size:var(--text-sm); color:var(--text-body); line-height:var(--leading-normal); }
+
+.intro-learn{ margin-top:34px; text-align:center; }
+.intro-learn-label{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:var(--text-xs);
+  letter-spacing:.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:18px; }
+.intro-learn-label svg{ width:15px; height:15px; }
+.intro-chips{ display:flex; flex-wrap:wrap; justify-content:center; gap:10px; }
+.intro-chip{ display:inline-flex; align-items:center; gap:8px; padding:9px 15px; border-radius:var(--radius-pill);
+  background:var(--surface-card); border:1px solid var(--line); font-size:var(--text-sm); font-weight:600;
+  color:var(--text-body); box-shadow:var(--shadow-xs); }
+.intro-chip svg{ width:16px; height:16px; color:var(--color-primary); }
+@media (max-width: 760px){ .intro-steps{ grid-template-columns:1fr; } }
+
+/* ============================================================
    Principle
    ============================================================ */
 .principle{ overflow:hidden; }
