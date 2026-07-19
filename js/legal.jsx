@@ -74,8 +74,8 @@
               doc.sections.map((s, i) => h("a", { key: i, href: "#" + s.id }, s.title))),
             h("article", { className: "legal-body" },
               h("h1", null, doc.title),
-              h("p", { className: "legal-meta" }, "Last updated " + doc.updated + " \u00b7 Effective " + doc.updated),
-              h("p", { className: "legal-intro" }, doc.intro),
+              h("p", { className: "legal-meta" }, doc.meta || ("Last updated " + doc.updated + " \u00b7 Effective " + doc.updated)),
+              h("div", { className: "legal-intro" }, doc.intro),
               doc.sections.map((s, i) => h(Section, { key: i, id: s.id, num: String(i + 1).padStart(2, "0"), title: s.title }, s.body)))))),
       h(LegalFooter, null));
   }
