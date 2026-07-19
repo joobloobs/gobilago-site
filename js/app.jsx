@@ -37,18 +37,10 @@
     const { useTweaks, TweaksPanel, TweakSection, TweakToggle, TweakRadio, TweakColor } = window;
     const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
 
-    // Language: auto-detect from browser locale, persisted in localStorage.
-    const [lang, setLangState] = useState(() => {
-      const stored = localStorage.getItem("gb-lang");
-      if (stored === "en" || stored === "fr") return stored;
-      return navigator.language.startsWith("fr") ? "fr" : "en";
-    });
-    const toggleLang = () => {
-      const next = lang === "en" ? "fr" : "en";
-      localStorage.setItem("gb-lang", next);
-      setLangState(next);
-    };
-
+    // The URL decides the language; the page only loads its own locale bundle.
+    const locale = window.GobilagoLocale;
+    const lang = locale.lang;
+    const tweaksCopy = window.I18n[lang].tweaks;
     // Theme toggle (nav button + tweak) with a circular reveal that
     // expands from the click origin via the View Transitions API.
     const setTheme = (mode, ev) => {
@@ -98,7 +90,12 @@
 
     const wrap = (node, i) => h("div", { className: "reveal", key: i }, node);
 
-    return h(window.LangContext.Provider, { value: { lang, toggleLang } },
+    return h(window.LangContext.Provider, { value: {
+      lang,
+      alternateLang: locale.alternateLang,
+      alternateUrl: locale.alternateUrl,
+      rememberLanguage: locale.rememberLanguage,
+    } },
       h(Nav, { theme, setTheme }),
       h("main", { id: "content" },
         h(Hero, null),
@@ -111,17 +108,17 @@
         wrap(h(RoadmapSection, null), "rm"),
         wrap(h(CTASection, null), "ct")),
       h(Footer, null),
-      h(TweaksPanel, { title: "Tweaks" },
-        h(TweakSection, { label: "Mood" }),
-        h(TweakToggle, { label: "Warm paper tone", value: t.warm, onChange: (v) => setTweak("warm", v) }),
-        h(TweakToggle, { label: "Dark mode", value: t.dark, onChange: (v) => setTheme(v ? "dark" : "light") }),
-        h(TweakToggle, { label: "Confetti moments", value: t.confetti, onChange: (v) => setTweak("confetti", v) }),
-        h(TweakSection, { label: "Accent" }),
-        h(TweakColor, { label: "Accent color", value: accentHex(t.accent),
+      h(TweaksPanel, { title: tweaksCopy.title },
+        h(TweakSection, { label: tweaksCopy.mood }),
+        h(TweakToggle, { label: tweaksCopy.warm, value: t.warm, onChange: (v) => setTweak("warm", v) }),
+        h(TweakToggle, { label: tweaksCopy.dark, value: t.dark, onChange: (v) => setTheme(v ? "dark" : "light") }),
+        h(TweakToggle, { label: tweaksCopy.confetti, value: t.confetti, onChange: (v) => setTweak("confetti", v) }),
+        h(TweakSection, { label: tweaksCopy.accent }),
+        h(TweakColor, { label: tweaksCopy.accentColor, value: accentHex(t.accent),
           options: ["#5E5CE6", "#8E7CF0", "#1FA8A0", "#2F80ED"],
           onChange: (v) => setTweak("accent", hexToAccent(v)) }),
-        h(TweakSection, { label: "Hero" }),
-        h(TweakRadio, { label: "Layout", value: t.heroLayout, options: ["split", "centered"],
+        h(TweakSection, { label: tweaksCopy.hero }),
+        h(TweakRadio, { label: tweaksCopy.layout, value: t.heroLayout, options: ["split", "centered"],
           onChange: (v) => setTweak("heroLayout", v) })));
   }
 

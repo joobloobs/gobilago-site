@@ -1,0 +1,129 @@
+const { LegalPage, P, UL, Callout, h } = window.LegalKit;
+
+  const link = (href, text) => h("a", { href, style: { color: "var(--color-primary)" } }, text);
+  const strong = (...kids) => h("strong", null, ...kids);
+
+  const DOC = {
+    title: "Privacy Policy",
+    updated: "June 17, 2026",
+    intro: "Data Controller: Jules Battaglia · Contact: contact@gobilago.com",
+    sections: [
+      { id: "who-we-are", title: "Who We Are", body: h("div", null,
+        P("Gobilago is an iOS spaced-repetition study application developed and operated by Jules Battaglia, an individual developer based in France. Jules Battaglia is the data controller responsible for personal data processed in connection with the App."),
+        P("This Privacy Policy explains what data is collected, why, how it is used, and what rights you have under the General Data Protection Regulation (GDPR) and applicable French law.")) },
+
+      { id: "data-we-collect", title: "Data We Collect", body: h("div", null,
+        h("h3", null, "2.1 Account Data"),
+        P("When you create an account to use cloud sync or the Library, we collect:"),
+        UL([
+          h("span", null, "Your ", strong("email address"), " (used for authentication and account management);"),
+          h("span", null, "A ", strong("hashed password"), " or OAuth token (depending on sign-in method — we never store your raw password);"),
+          h("span", null, "A ", strong("username"), " you choose, which is ", strong("publicly visible"), " to other users (for example, as the author of a published collection). The username is a pseudonym — it does not have to contain your real name — but it is linked to your account internally. Your email address is ", strong("never"), " shown publicly.")
+        ]),
+        P(strong("Legal basis:"), " Performance of a contract (Article 6(1)(b) GDPR) — account data is required to provide the cloud sync and Library features."),
+        h("h3", null, "2.2 Study Content"),
+        P("If cloud sync is enabled, the following data is uploaded to our servers:"),
+        UL([
+          h("span", null, strong("Collections"), " — names, descriptions, icons, and styling you configure;"),
+          h("span", null, strong("Atoms and Faces"), " — the knowledge content you create, including text, images, and drawings;"),
+          h("span", null, strong("Templates"), " — reusable card structures you save or publish;"),
+          h("span", null, strong("Cluster and Facet configuration"), " — how your atoms are structured for study.")
+        ]),
+        P(strong("Legal basis:"), " Performance of a contract (Article 6(1)(b) GDPR) — sync is an opt-in feature you activate."),
+        h("h3", null, "2.3 Review Performance Data"),
+        P("When cloud sync is enabled, we also store:"),
+        UL([
+          h("span", null, strong("Review logs"), " — timestamps, recall scores, and SRS interval data generated each time you study;"),
+          h("span", null, strong("Cluster scheduling state"), " — current intervals, due dates, and training progress per cluster.")
+        ]),
+        P(strong("Legal basis:"), " Performance of a contract (Article 6(1)(b) GDPR) — this data is what powers cross-device spaced repetition."),
+        h("h3", null, "2.4 Data We Do NOT Collect"),
+        UL([
+          "We do not use any third-party analytics SDK (no Firebase, Mixpanel, Amplitude, or equivalent);",
+          "We do not collect device identifiers, advertising IDs, or location data;",
+          "We do not track your behaviour across other apps or websites;",
+          "All study data remains local-only unless you explicitly enable cloud sync."
+        ])) },
+
+      { id: "how-we-use", title: "How We Use Your Data", body: h("div", null,
+        h("table", { className: "legal-table" },
+          h("thead", null,
+            h("tr", null,
+              h("th", null, "Purpose"),
+              h("th", null, "Data Used"),
+              h("th", null, "Legal Basis"))),
+          h("tbody", null,
+            h("tr", null, h("td", null, "Authenticate your account"), h("td", null, "Email, hashed password"), h("td", null, "Contract")),
+            h("tr", null, h("td", null, "Sync your study content across devices"), h("td", null, "Collections, atoms, review logs"), h("td", null, "Contract")),
+            h("tr", null, h("td", null, "Serve the public Library"), h("td", null, "Published collections (you opt in)"), h("td", null, "Contract")),
+            h("tr", null, h("td", null, "Detect and prevent abuse"), h("td", null, "Account activity, published content"), h("td", null, "Legitimate interests"))))) },
+
+      { id: "data-storage", title: "Data Storage and Transfers", body: h("div", null,
+        h("h3", null, "4.1 Local Storage"),
+        P("The primary store for all your data is ", strong("on your device"), ", using SQLite. The App is designed to function fully offline. Cloud sync is a background convenience layer, not a requirement."),
+        h("h3", null, "4.2 Cloud Storage"),
+        P("Cloud data is stored via ", strong("Supabase"), " (Supabase Inc., a US company). Data is stored in Supabase’s ", strong("EU (Frankfurt, Germany)"), " region. Supabase processes data under Standard Contractual Clauses (SCCs) as the legal mechanism for any transfers within its infrastructure. For details, see ", link("https://supabase.com/privacy", "Supabase’s privacy documentation"), "."),
+        P("No other third-party services receive your personal data."),
+        h("h3", null, "4.3 Retention"),
+        UL([
+          h("span", null, strong("Account data"), ": retained for as long as your account exists. Deleted within 30 days of account deletion."),
+          h("span", null, strong("Study content and review logs"), ": retained for as long as your account exists. Deleted within 30 days of account deletion."),
+          h("span", null, strong("Published Library content"), ": removed from public display immediately upon unpublishing or account deletion, with complete deletion within 30 days."),
+          h("span", null, strong("Local data on your device"), ": remains until you uninstall the App or delete it manually.")
+        ])) },
+
+      { id: "data-sharing", title: "Data Sharing", body: h("div", null,
+        P("We do not sell, rent, or trade your personal data. We share data only in the following limited cases:"),
+        UL([
+          h("span", null, strong("Supabase"), " — our cloud infrastructure provider, acting as a data processor under a Data Processing Agreement;"),
+          h("span", null, strong("Legal obligation"), " — if required by applicable law, court order, or regulatory authority;"),
+          h("span", null, strong("Protection of rights"), " — if necessary to prevent fraud, abuse, or protect the safety of users.")
+        ])) },
+
+      { id: "your-rights", title: "Your Rights Under GDPR", body: h("div", null,
+        P("As a data subject under the GDPR, you have the following rights:"),
+        h("table", { className: "legal-table" },
+          h("thead", null,
+            h("tr", null, h("th", null, "Right"), h("th", null, "What it means"))),
+          h("tbody", null,
+            h("tr", null, h("td", null, strong("Access"), " (Art. 15)"), h("td", null, "Request a copy of all personal data we hold about you")),
+            h("tr", null, h("td", null, strong("Rectification"), " (Art. 16)"), h("td", null, "Correct inaccurate or incomplete data")),
+            h("tr", null, h("td", null, strong("Erasure"), " (Art. 17)"), h("td", null, "Request deletion of your data (“right to be forgotten”)")),
+            h("tr", null, h("td", null, strong("Restriction"), " (Art. 18)"), h("td", null, "Ask us to limit how we use your data while a dispute is resolved")),
+            h("tr", null, h("td", null, strong("Portability"), " (Art. 20)"), h("td", null, "Receive your data in a structured, machine-readable format")),
+            h("tr", null, h("td", null, strong("Objection"), " (Art. 21)"), h("td", null, "Object to processing based on legitimate interests")),
+            h("tr", null, h("td", null, strong("Withdraw consent")), h("td", null, "Where processing is consent-based, withdraw at any time without affecting past processing")))),
+        P("To exercise any of these rights, email ", link("mailto:contact@gobilago.com", "contact@gobilago.com"), " with the subject line “GDPR Request”. We will respond within ", strong("30 days"), "."),
+        P("You also have the right to lodge a complaint with the French data protection authority:"),
+        h("div", { className: "legal-address" },
+          strong("Commission Nationale de l’Informatique et des Libertés (CNIL)"), h("br", null),
+          "3 Place de Fontenoy — TSA 80715", h("br", null),
+          "75334 Paris Cedex 07", h("br", null),
+          link("https://www.cnil.fr", "https://www.cnil.fr"))) },
+
+      { id: "security", title: "Security", body: h("div", null,
+        P("We apply the following measures to protect your data:"),
+        UL([
+          "All data in transit is encrypted using TLS 1.2+;",
+          "Passwords are hashed using bcrypt via Supabase Auth — we never store or transmit plaintext passwords;",
+          "Cloud database access is restricted by row-level security policies so users can only read their own data;",
+          "We use Supabase’s built-in audit logging and access controls."
+        ]),
+        P("No system is 100% secure. In the event of a data breach affecting your rights and freedoms, we will notify you and the relevant supervisory authority as required by GDPR (within 72 hours of becoming aware).")) },
+
+      { id: "children", title: "Children", body: h("div", null,
+        P("The App is not directed at children under the age of 15 (the age of digital consent in France under GDPR). We do not knowingly collect personal data from children under 15. If you believe a child under 15 has created an account, please contact us and we will delete the account promptly.")) },
+
+      { id: "changes", title: "Changes to This Policy", body: h("div", null,
+        P("We may update this Privacy Policy from time to time. When we make material changes, we will update the “Last updated” date at the top of this document and, where reasonably practicable, notify you via an in-app notice or email. Continued use of the App after changes are posted constitutes acceptance of the updated Policy.")) },
+
+      { id: "contact", title: "Contact", body: h("div", null,
+        P("For any privacy-related questions or to exercise your rights:"),
+        P(strong("Jules Battaglia")),
+        P("Email: ", link("mailto:contact@gobilago.com", "contact@gobilago.com")),
+        P("We aim to respond to all requests within 30 days."),
+        h("p", { style: { marginTop: "2rem", fontStyle: "italic", opacity: 0.7, fontSize: "0.875rem" } }, "This policy applies to the Gobilago iOS application and any associated cloud services.")) },
+    ],
+  };
+  ReactDOM.createRoot(document.getElementById("root")).render(h(LegalPage, { doc: DOC }));
+  setTimeout(() => window.lucide && window.lucide.createIcons(), 60);

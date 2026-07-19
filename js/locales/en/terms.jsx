@@ -1,4 +1,4 @@
-const { LegalPage, P, UL, Callout, h } = window.LegalKit;
+const { LegalPage, P, UL, h } = window.LegalKit;
 
 const link = (href, text) => h("a", { href, style: { color: "var(--color-primary)" } }, text);
 const strong = (...kids) => h("strong", null, ...kids);
@@ -10,16 +10,10 @@ const DOC = {
   intro: h(React.Fragment, null,
     P(strong("Service provider: "), "Jules Battaglia, Entrepreneur Individuel (EI), France", h("br"),
       strong("Contact: "), link("mailto:contact@gobilago.com", "contact@gobilago.com")),
-    Callout("Information to complete before publication: business address, SIREN, and the name and contact details of the appointed French consumer mediator."),
     P("These Terms of Use (the ", strong("“Terms”"), ") explain the rules for using the Gobilago mobile application and its related services (together, the ", strong("“App”"), "). They are intended to be clear and fair. If anything in these Terms conflicts with a mandatory consumer right that applies to you, that mandatory right prevails.")),
   sections: [
     { id: "provider", title: "Who provides Gobilago", body: h("div", null,
       P("Gobilago is developed and operated by ", strong("Jules Battaglia, Entrepreneur Individuel (EI)"), ", established in France (", strong("“Gobilago,” “we,” “us,” or “our”"), ")."),
-      P("Before publication, add the following legal information:"),
-      UL([
-        h("span", null, strong("Business address: "), "[BUSINESS ADDRESS TO ADD]"),
-        h("span", null, strong("SIREN: "), "[SIREN TO ADD]")
-      ]),
       P("You can contact us at ", strong("contact@gobilago.com"), ".")) },
 
     { id: "acceptance", title: "Accepting these Terms", body: h("div", null,
@@ -125,14 +119,7 @@ const DOC = {
 
     { id: "disputes", title: "Governing law and disputes", body: h("div", null,
       P("These Terms are governed by French law. If you live elsewhere, you also retain any mandatory consumer protections provided by the law of your country of residence. Nothing in these Terms forces you to bring a consumer claim before a court that does not have jurisdiction under applicable law."),
-      P("Please contact ", strong("contact@gobilago.com"), " first so that we can try to resolve a concern informally."),
-      P("After first making a written complaint to us, an eligible consumer may use the French consumer-mediation service appointed by Gobilago free of charge:"),
-      UL([
-        h("span", null, strong("Mediator: "), "[APPOINTED CONSUMER MEDIATOR TO ADD]"),
-        h("span", null, strong("Postal address: "), "[MEDIATOR ADDRESS TO ADD]"),
-        h("span", null, strong("Website: "), "[MEDIATOR WEBSITE TO ADD]")
-      ]),
-      P("The former European Commission Online Dispute Resolution platform was discontinued in 2025 and is therefore not referenced in these Terms.")) },
+      P("Please contact ", strong("contact@gobilago.com"), " first so that we can try to resolve a concern informally.")) },
 
     { id: "general", title: "General provisions", body: h("div", null,
       P("If a court finds one part of these Terms unenforceable, the remaining provisions continue to apply. A delay in enforcing a right is not a waiver of that right. We may not transfer our obligations in a way that reduces your mandatory consumer rights without your consent."),
@@ -142,9 +129,7 @@ const DOC = {
     { id: "contact", title: "Contact", body: h("div", null,
       P("Questions, complaints, moderation requests, or notices concerning these Terms can be sent to:"),
       P(strong("Jules Battaglia — Entrepreneur Individuel (EI)"), h("br"),
-        strong("Email: "), link("mailto:contact@gobilago.com", "contact@gobilago.com"), h("br"),
-        strong("Business address: "), "[BUSINESS ADDRESS TO ADD]", h("br"),
-        strong("SIREN: "), "[SIREN TO ADD]")) }
+        strong("Email: "), link("mailto:contact@gobilago.com", "contact@gobilago.com"))) }
   ]
 };
 

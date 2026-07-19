@@ -12,18 +12,20 @@
 
   /* ---- App Store badge ---- */
   function AppStoreBadge({ light, href = "#get" }) {
+    const { lang } = React.useContext(window.LangContext);
+    const copy = window.I18n[lang].appStore || { line1: "Download on the", line2: "App Store" };
     return h("a", { className: "appstore-badge" + (light ? " appstore-badge--light" : ""), href },
       h("svg", { viewBox: "0 0 24 24", fill: "currentColor", "aria-hidden": "true" },
         h("path", { d: "M17.05 12.97c-.03-2.6 2.12-3.84 2.22-3.9-1.21-1.77-3.1-2.01-3.77-2.04-1.6-.16-3.13.94-3.94.94-.81 0-2.07-.92-3.4-.9-1.75.03-3.36 1.02-4.26 2.58-1.82 3.16-.47 7.83 1.3 10.4.86 1.26 1.89 2.67 3.24 2.62 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.29-1.28 3.15-2.55.99-1.46 1.4-2.88 1.42-2.95-.03-.01-2.72-1.04-2.75-4.13zM14.6 5.35c.72-.87 1.2-2.08 1.07-3.29-1.03.04-2.28.69-3.02 1.56-.66.77-1.24 2-1.08 3.18 1.15.09 2.32-.59 3.03-1.45z" })),
       h("span", null,
-        h("span", { className: "asb-1" }, "Download on the"),
-        h("span", { className: "asb-2" }, "App Store")));
+        h("span", { className: "asb-1" }, copy.line1),
+        h("span", { className: "asb-2" }, copy.line2)));
   }
   window.AppStoreBadge = AppStoreBadge;
 
   /* ---- Nav ---- */
   function Nav({ theme, setTheme }) {
-    const { lang, toggleLang } = React.useContext(window.LangContext);
+    const { lang, alternateUrl, rememberLanguage } = React.useContext(window.LangContext);
     const T = window.I18n[lang].nav;
     const [scrolled, setScrolled] = React.useState(false);
     React.useEffect(() => {
@@ -42,7 +44,7 @@
         h("div", { className: "nav-actions" },
           h("button", { className: "nav-theme", "aria-label": "Toggle light / dark", onClick: (e) => setTheme(theme === "dark" ? "light" : "dark", e) },
             Ico(theme === "dark" ? "sun" : "moon")),
-          h("button", { className: "nav-theme", "aria-label": "Switch language", onClick: toggleLang,
+          h("a", { className: "nav-theme", "aria-label": window.GobilagoLocale.ui.language, href: alternateUrl, onClick: rememberLanguage,
             style: { fontFamily: "var(--font-mono, monospace)", fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.05em" } },
             window.I18n[lang].langToggle),
           h("span", { className: "nav-hide-sm" },

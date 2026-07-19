@@ -461,3 +461,47 @@ h3{ font-size:var(--text-lg); }
 @media (max-width:900px){
   .legal-wrap{ grid-template-columns:1fr; } .legal-toc{ position:static; display:none; }
 }
+
+/* Structured content used by the privacy policy. */
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.9rem;
+}
+.legal-table th,
+.legal-table td {
+  text-align: left;
+  padding: 0.6rem 0.875rem;
+  border: 1px solid var(--color-border, rgba(0,0,0,0.12));
+  vertical-align: top;
+}
+.legal-table th {
+  background: var(--color-surface-2, rgba(0,0,0,0.04));
+  font-weight: 600;
+}
+[data-theme="dark"] .legal-table th {
+  background: rgba(255,255,255,0.06);
+}
+[data-theme="dark"] .legal-table th,
+[data-theme="dark"] .legal-table td {
+  border-color: rgba(255,255,255,0.12);
+}
+.legal-address {
+  margin: 1rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--color-primary, #6366f1);
+  background: var(--color-surface-2, rgba(0,0,0,0.04));
+  border-radius: 0 6px 6px 0;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+[data-theme="dark"] .legal-address {
+  background: rgba(255,255,255,0.05);
+}
+.legal-body h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+  color: var(--color-text);
+}
