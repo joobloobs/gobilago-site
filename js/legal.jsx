@@ -9,6 +9,17 @@
   const ui = locale.ui;
   const Ico = (n, p = {}) => h("i", { "data-lucide": n, ...p });
   const homeUrl = (hash = "") => locale.urlFor(locale.lang, "home") + hash;
+  const Ico = (n, p = {}) => h("i", { "data-lucide": n, ...p });
+  const LOGO_SRC = "ds/gobilago-design-system-a1fc6c20-5385-4629-921c-c442dc25b4f5/gobilogo.png";
+
+  function Brand({ size = 28, showWordmark = true }) {
+    return h("span", { style: { display: "inline-flex", alignItems: "center", gap: size * 0.34 } },
+      h("img", { src: LOGO_SRC, alt: "Gobilago", width: size, height: size,
+        style: { width: size, height: size, borderRadius: size * 0.25, flex: "none", display: "block" } }),
+      showWordmark && h("span", {
+        style: { fontFamily: "var(--font-display)", fontWeight: 800, letterSpacing: "-0.03em", fontSize: size * 0.92, lineHeight: 1, color: "var(--text-strong)" }
+      }, "Gobilago"));
+  }
 
   function LegalNav({ theme, setTheme }) {
     return h("header", { className: "nav is-scrolled" },

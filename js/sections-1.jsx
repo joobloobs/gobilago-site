@@ -3,12 +3,24 @@
   const React = window.React;
   const h = React.createElement;
   const DS = window.GobilagoDesignSystem_a1fc6c;
-  const { Logo, Button, Tag, Card } = DS;
+  const { Button, Tag, Card } = DS;
   const Ico = (n, props = {}) => h("i", { "data-lucide": n, ...props });
+  const LOGO_SRC = "ds/gobilago-design-system-a1fc6c20-5385-4629-921c-c442dc25b4f5/gobilogo.png";
 
   function Eyebrow({ icon, children }) {
     return h("span", { className: "eyebrow" }, icon ? Ico(icon) : null, children);
   }
+
+  /* ---- Brand mark (gobilogo.png) + wordmark ---- */
+  function Brand({ size = 28, showWordmark = true }) {
+    return h("span", { style: { display: "inline-flex", alignItems: "center", gap: size * 0.34 } },
+      h("img", { src: LOGO_SRC, alt: "Gobilago", width: size, height: size,
+        style: { width: size, height: size, borderRadius: size * 0.25, flex: "none", display: "block" } }),
+      showWordmark && h("span", {
+        style: { fontFamily: "var(--font-display)", fontWeight: 800, letterSpacing: "-0.03em", fontSize: size * 0.92, lineHeight: 1, color: "var(--text-strong)" }
+      }, "Gobilago"));
+  }
+  window.Brand = Brand;
 
   /* ---- App Store badge ---- */
   function AppStoreBadge({ light, href = "#get" }) {
@@ -35,7 +47,7 @@
     }, []);
     return h("header", { className: "nav" + (scrolled ? " is-scrolled" : "") },
       h("div", { className: "container nav-inner" },
-        h("a", { href: "#top", className: "nav-logo", "aria-label": "Gobilago home" }, h(Logo, { size: 28 })),
+        h("a", { href: "#top", className: "nav-logo", "aria-label": "Gobilago home" }, h(Brand, { size: 28 })),
         h("nav", { className: "nav-links" },
           h("a", { href: "#principle" }, T.method),
           h("a", { href: "#model" }, T.model),

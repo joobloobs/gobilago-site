@@ -3,7 +3,7 @@
   const React = window.React;
   const h = React.createElement;
   const DS = window.GobilagoDesignSystem_a1fc6c;
-  const { Card, Button, AuroraPanel, Logo } = DS;
+  const { Card, Button, AuroraPanel } = DS;
   const Ico = (n, props = {}) => h("i", { "data-lucide": n, ...props });
   function Eyebrow({ icon, children, className }) {
     return h("span", { className: "eyebrow" + (className ? " " + className : "") }, icon ? Ico(icon) : null, children);
@@ -56,7 +56,7 @@
     return h("footer", { className: "footer", "data-screen-label": "Footer" },
       h("div", { className: "container footer-inner" },
         h("div", { className: "footer-brand" },
-          h(Logo, { size: 30 }),
+          h(window.Brand, { size: 30 }),
           h("p", null, T.brand),
           h("div", { className: "footer-social" },
             h("a", { href: "#", "aria-label": "GitHub" }, ghIcon),
