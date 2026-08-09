@@ -16,7 +16,7 @@
     "h1b": "Retenez-le pour de bon.",
     "lead1": "Gobilago est une application de répétition espacée qui vous fait ",
     "leadEm": "rappeler activement",
-    "lead2": " ce que vous étudiez — en tapant, en dessinant, en le reproduisant de mémoire — puis ramène chaque carte juste avant que vous ne l’oubliiez. C’est tout le principe : se rappeler, pas reconnaître.",
+    "lead2": " ce que vous étudiez — en tapant, en dessinant, en le reproduisant de mémoire — puis ramène chaque carte juste avant que vous ne l’oubliiez.",
     "seeHow": "Voir comment ça marche",
     "note": "Gratuit pour débuter · Fonctionne hors ligne · Aucun compte requis"
   },
@@ -286,7 +286,7 @@
     "ios": "Nécessite iOS 17+"
   },
   "footer": {
-    "brand": "Mémoriser, pas reconnaître. Une application de répétition espacée hors ligne pour ceux qui veulent vraiment retenir ce qu’ils apprennent.",
+    "brand": "Une application de répétition espacée hors ligne pour ceux qui veulent vraiment retenir ce qu’ils apprennent.",
     "product": "Produit",
     "company": "Entreprise",
     "legal": "Légal",

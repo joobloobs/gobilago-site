@@ -17,7 +17,7 @@
   "contact": "Contact",
   "terms": "Terms of Use",
   "privacy": "Privacy Policy",
-  "brand": "Recall, not recognition. An offline-first spaced-repetition app for people who want to actually keep what they learn.",
+  "brand": "An offline-first spaced-repetition app for people who want to actually keep what they learn.",
   "made": "Made with care · iOS only · Works offline"
 };
 })();
