@@ -9,7 +9,6 @@
   const ui = locale.ui;
   const Ico = (n, p = {}) => h("i", { "data-lucide": n, ...p });
   const homeUrl = (hash = "") => locale.urlFor(locale.lang, "home") + hash;
-  const Ico = (n, p = {}) => h("i", { "data-lucide": n, ...p });
   const LOGO_SRC = "ds/gobilago-design-system-a1fc6c20-5385-4629-921c-c442dc25b4f5/gobilogo.png";
 
   function Brand({ size = 28, showWordmark = true }) {
