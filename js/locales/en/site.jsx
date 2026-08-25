@@ -314,6 +314,10 @@
         "#roadmap"
       ],
       [
+        "Support",
+        "support.html"
+      ],
+      [
         "Contact",
         "mailto:contact@gobilago.com"
       ]

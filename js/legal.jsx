@@ -58,6 +58,7 @@
             h("a", { href: locale.urlFor(locale.lang, "terms") }, ui.terms),
             h("a", { href: locale.urlFor(locale.lang, "privacy") }, ui.privacy)),
           h("div", null, h("h4", null, ui.contact),
+            h("a", { href: locale.urlFor(locale.lang, "support") }, ui.support),
             h("a", { href: "mailto:contact@gobilago.com" }, "contact@gobilago.com"))),
         h("div", { className: "footer-foot" },
           h("span", { className: "gb-mono" }, "© " + year + " Gobilago"),

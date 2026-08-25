@@ -17,6 +17,7 @@
   "contact": "Contact",
   "terms": "Conditions d’utilisation",
   "privacy": "Politique de confidentialité",
+  "support": "Assistance",
   "brand": "Une application de répétition espacée hors ligne pour retenir durablement ce que vous apprenez.",
   "made": "Fait avec soin · iOS uniquement · Fonctionne hors ligne"
 };

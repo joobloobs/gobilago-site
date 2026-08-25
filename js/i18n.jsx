@@ -11,6 +11,7 @@
     home: { en: "/", fr: "/fr/" },
     terms: { en: "/terms.html", fr: "/fr/terms.html" },
     privacy: { en: "/privacy.html", fr: "/fr/privacy.html" },
+    support: { en: "/support.html", fr: "/fr/support.html" },
   };
 
   function urlFor(targetLang, targetRoute = route) {
